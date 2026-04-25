@@ -10,54 +10,76 @@ body {
     font-family: Arial;
     background: linear-gradient(135deg, #1a1a1a, #4b0082);
     color:white;
+    height:100vh;
+    overflow:hidden;
+
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
-    overflow:hidden;
-}
-
-.page {
-    display:none;
     text-align:center;
 }
 
-#start { display:block; }
+/* الصفحات */
+.page {
+    display:none;
+    width:90%;
+    max-width:500px;
+}
 
+/* أول صفحة */
+#start {
+    display:block;
+}
+
+/* عنوان */
+h2 {
+    font-size:28px;
+}
+
+/* زرار */
 button {
-    padding:15px 30px;
+    padding:15px 25px;
     border:none;
     border-radius:15px;
     background: gold;
     cursor:pointer;
     font-size:18px;
+    width:100%;
+    max-width:300px;
 }
 
+/* input */
 input {
-    padding:12px;
-    margin:10px;
+    padding:15px;
+    margin:10px 0;
     border:none;
     border-radius:10px;
+    width:100%;
+    max-width:300px;
+    font-size:16px;
 }
 
-/* نصوص */
+/* صباح */
 .morning {
-    font-size:30px;
+    font-size:26px;
+    line-height:1.8;
 }
 
+/* اعتذار */
 .sorry {
-    font-size:26px;
+    font-size:22px;
     line-height:1.8;
     color:#ffcccc;
 }
 
+/* بحبك */
 .love-text {
-    font-size:80px;
+    font-size:70px;
     color:#ff4d6d;
     text-shadow:0 0 20px #ff4d6d;
 }
 
-/* قلوب */
+/* القلوب */
 .heart {
     position:absolute;
     width:15px;
@@ -85,6 +107,7 @@ input {
     to { transform: translateY(100vh) rotate(360deg); }
 }
 
+/* error */
 #error {
     color:red;
     display:none;
@@ -94,13 +117,13 @@ input {
 
 <body>
 
-<!-- 1 عندي ليكي حاجه -->
+<!-- 1 -->
 <div id="start" class="page">
     <h2>😉 عندي ليكي حاجه</h2>
     <button onclick="goToLogin()">اتفصلي</button>
 </div>
 
-<!-- 2 الباسورد -->
+<!-- 2 -->
 <div id="login" class="page">
     <h2>🔒 ادخل كلمة السر</h2>
     <p style="color:#ffcccb;">معلش تقل دم مني 😅 اكتبي الباسورد</p>
@@ -110,7 +133,7 @@ input {
     <p id="error">كلمة السر غلط</p>
 </div>
 
-<!-- 3 الصبح -->
+<!-- 3 -->
 <div id="morning" class="page">
     <div class="morning">
         🌤 صباح الخير يا أجمل حاجة في حياتي ❤️
@@ -119,24 +142,24 @@ input {
     <button onclick="goToSorry()">اكمل</button>
 </div>
 
-<!-- 4 الاعتذار -->
+<!-- 4 -->
 <div id="sorry" class="page">
     <div class="sorry">
         💔 أنا آسف على كل حاجة فاتت 💔<br><br>
         لو ضايقتك في يوم أو جرحتك<br>
-        فده كان غصب عني <br><br>
-       ❤️ كل اللي فات كان غلط، بس مشاعري كانت حقيقية ❤️
+        فده كان غصب عني 😔<br><br>
+        كل اللي فات كان غلط، بس مشاعري كانت حقيقية ❤️
     </div>
     <br>
     <button onclick="goToLove()">اكمل</button>
 </div>
 
-<!-- 5 الحب -->
+<!-- 5 -->
 <div id="home" class="page">
     <div class="love-text">❤️ بحبك ❤️</div>
 </div>
 
-<!-- أغنية -->
+<!-- الأغنية -->
 <audio id="music" src="100.mp3" loop></audio>
 
 <script>
