@@ -168,7 +168,7 @@ input {
 <!-- 5 -->
 <div id="annoy" class="page">
     <div class="annoy">
-           وأخيرًا<br>
+        وأخيرًا<br>
         انتي إنسانة مستفزة
     </div>
     <button onclick="goToLove()">اكمل</button>
@@ -184,7 +184,7 @@ input {
 
 <script>
 
-const pass = "1234";
+const pass = "1442024"; // 🔐 التغيير الوحيد
 let heartsStarted = false;
 
 function show(page){
@@ -202,7 +202,6 @@ function check(){
     if(input === pass){
         show("morning");
 
-        // تشغيل الأغنية بعد الباسورد
         let music = document.getElementById("music");
         music.play().catch(()=>{});
 
