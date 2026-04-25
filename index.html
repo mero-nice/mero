@@ -13,23 +13,27 @@ body {
     color:white;
     height:100vh;
     overflow:hidden;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
 }
 
-/* الصفحات */
+/* الصفحات (توسيط مضبوط 100%) */
 .page {
     display:none;
-    width:92%;
+    position:fixed;
+
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+
+    width:90vw;
     max-width:420px;
+
     background: rgba(255,255,255,0.08);
     padding:18px;
     border-radius:18px;
     backdrop-filter: blur(10px);
+
     box-sizing:border-box;
+    text-align:center;
 }
 
 /* أول صفحة */
@@ -41,7 +45,6 @@ h2 {
     font-size:22px;
 }
 
-/* زرار */
 button {
     padding:12px;
     border:none;
@@ -53,7 +56,6 @@ button {
     margin-top:10px;
 }
 
-/* input */
 input {
     padding:12px;
     margin:10px 0;
@@ -64,7 +66,7 @@ input {
     text-align:center;
 }
 
-/* نصوص */
+/* النصوص */
 .morning {
     font-size:18px;
     line-height:1.8;
@@ -83,9 +85,10 @@ input {
 }
 
 .love {
-    font-size:32px;
+    font-size:30px;
     color:#ff4d6d;
     text-shadow:0 0 15px #ff4d6d;
+    white-space:nowrap;
 }
 
 /* قلوب */
@@ -125,11 +128,13 @@ input {
 
 <body>
 
+<!-- 1 -->
 <div id="start" class="page">
     <h2>😉 عندي ليكي حاجه</h2>
     <button onclick="goToLogin()">اتفصلي</button>
 </div>
 
+<!-- 2 -->
 <div id="login" class="page">
     <h2>🔒 الباسورد</h2>
 
@@ -142,6 +147,7 @@ input {
     <p id="error">كلمة السر غلط</p>
 </div>
 
+<!-- 3 -->
 <div id="morning" class="page">
     <div class="morning">
         🌤 صباح الخير يا أجمل حاجة في حياتي ❤️
@@ -149,15 +155,17 @@ input {
     <button onclick="goToSorry()">اكمل</button>
 </div>
 
+<!-- 4 -->
 <div id="sorry" class="page">
     <div class="sorry">
         💔 أنا آسف على كل حاجة فاتت 💔<br><br>
-        لو ضايقتك في يوم أو جرحتك فده كان غصب عني 😔<br><br>
+        لو ضايقتك أو جرحتك فده كان غصب عني 😔<br><br>
         ❤️ كل اللي فات كان غلط، بس مشاعري كانت حقيقية ❤️
     </div>
     <button onclick="goToAnnoy()">اكمل</button>
 </div>
 
+<!-- 5 -->
 <div id="annoy" class="page">
     <div class="annoy">
         😏 وأخيرًا<br>
@@ -166,12 +174,12 @@ input {
     <button onclick="goToLove()">اكمل</button>
 </div>
 
+<!-- 6 -->
 <div id="love" class="page">
-    <div class="love">
-        ❤️ بحبك يا أحلى ميرو ❤️
-    </div>
+    <div class="love">❤️ بحبك يا أحلى ميرو ❤️</div>
 </div>
 
+<!-- أغنية -->
 <audio id="music" src="100.mp3" loop></audio>
 
 <script>
@@ -194,6 +202,7 @@ function check(){
     if(input === pass){
         show("morning");
 
+        // تشغيل الأغنية بعد الباسورد
         let music = document.getElementById("music");
         music.play().catch(()=>{});
 
