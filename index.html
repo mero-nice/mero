@@ -2,6 +2,7 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>هدية ❤️</title>
 
 <style>
@@ -22,12 +23,13 @@ body {
 /* الصفحات */
 .page {
     display:none;
-    width:90%;
+    width:92%;
     max-width:420px;
     background: rgba(255,255,255,0.08);
-    padding:25px;
-    border-radius:20px;
+    padding:18px;
+    border-radius:18px;
     backdrop-filter: blur(10px);
+    box-sizing:border-box;
 }
 
 /* أول صفحة */
@@ -36,61 +38,61 @@ body {
 }
 
 h2 {
-    font-size:26px;
+    font-size:22px;
 }
 
+/* زرار */
 button {
-    padding:14px;
+    padding:12px;
     border:none;
-    border-radius:12px;
+    border-radius:10px;
     background: gold;
-    font-size:18px;
+    font-size:16px;
     cursor:pointer;
     width:100%;
-    max-width:300px;
     margin-top:10px;
 }
 
+/* input */
 input {
-    padding:14px;
+    padding:12px;
     margin:10px 0;
     border:none;
     border-radius:10px;
     width:100%;
-    max-width:300px;
-    font-size:16px;
+    font-size:15px;
     text-align:center;
 }
 
 /* نصوص */
 .morning {
-    font-size:22px;
+    font-size:18px;
     line-height:1.8;
 }
 
 .sorry {
-    font-size:20px;
-    line-height:1.8;
+    font-size:16px;
+    line-height:1.7;
     color:#ffd6d6;
 }
 
 .annoy {
-    font-size:38px;
+    font-size:28px;
     color:#ffcc00;
-    text-shadow:0 0 15px #ffcc00;
+    text-shadow:0 0 10px #ffcc00;
 }
 
 .love {
-    font-size:55px;
+    font-size:32px;
     color:#ff4d6d;
-    text-shadow:0 0 25px #ff4d6d;
+    text-shadow:0 0 15px #ff4d6d;
 }
 
 /* قلوب */
 .heart {
     position:absolute;
-    width:14px;
-    height:14px;
+    width:12px;
+    height:12px;
     background:#ff2d55;
     transform: rotate(-45deg);
     top:-20px;
@@ -101,14 +103,14 @@ input {
 .heart::after {
     content:"";
     position:absolute;
-    width:14px;
-    height:14px;
+    width:12px;
+    height:12px;
     background:#ff2d55;
     border-radius:50%;
 }
 
-.heart::before { top:-7px; left:0; }
-.heart::after { left:7px; }
+.heart::before { top:-6px; left:0; }
+.heart::after { left:6px; }
 
 @keyframes fall {
     to { transform: translateY(100vh) rotate(360deg); }
@@ -123,17 +125,15 @@ input {
 
 <body>
 
-<!-- 1 -->
 <div id="start" class="page">
     <h2>😉 عندي ليكي حاجه</h2>
     <button onclick="goToLogin()">اتفصلي</button>
 </div>
 
-<!-- 2 -->
 <div id="login" class="page">
     <h2>🔒 الباسورد</h2>
 
-    <p style="color:#ffcccc; font-size:18px;">
+    <p style="color:#ffcccc; font-size:15px;">
         أكيد هتعرفي الباسورد 😉
     </p>
 
@@ -142,7 +142,6 @@ input {
     <p id="error">كلمة السر غلط</p>
 </div>
 
-<!-- 3 -->
 <div id="morning" class="page">
     <div class="morning">
         🌤 صباح الخير يا أجمل حاجة في حياتي ❤️
@@ -150,36 +149,29 @@ input {
     <button onclick="goToSorry()">اكمل</button>
 </div>
 
-<!-- 4 -->
 <div id="sorry" class="page">
     <div class="sorry">
         💔 أنا آسف على كل حاجة فاتت 💔<br><br>
-
-        لو ضايقتك في يوم أو جرحتك<br>
-        فده كان غصب عني 😔<br><br>
-
+        لو ضايقتك في يوم أو جرحتك فده كان غصب عني 😔<br><br>
         ❤️ كل اللي فات كان غلط، بس مشاعري كانت حقيقية ❤️
     </div>
     <button onclick="goToAnnoy()">اكمل</button>
 </div>
 
-<!-- 5 -->
 <div id="annoy" class="page">
     <div class="annoy">
-        😏 وأخيرًا<br><br>
+        😏 وأخيرًا<br>
         انتي إنسانة مستفزة
     </div>
     <button onclick="goToLove()">اكمل</button>
 </div>
 
-<!-- 6 ❤️ -->
 <div id="love" class="page">
     <div class="love">
         ❤️ بحبك يا أحلى ميرو ❤️
     </div>
 </div>
 
-<!-- أغنية -->
 <audio id="music" src="100.mp3" loop></audio>
 
 <script>
@@ -202,7 +194,6 @@ function check(){
     if(input === pass){
         show("morning");
 
-        // 🎵 تشغيل الأغنية بعد الباسورد
         let music = document.getElementById("music");
         music.play().catch(()=>{});
 
