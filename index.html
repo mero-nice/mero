@@ -155,7 +155,7 @@ input {
 <div id="sorry" class="page">
     <div class="sorry">
       : عمرو حسن قال اي <br><br>
-     ❤️😂 قولي اهلا 💕 <br><br>
+      ❤️😂 قولي اهلا 💕 <br><br>
 ❤️😂 كوني سهلا ✨💖 <br><br>
 💌 قولي اي كلام علي راحتك ومهلا 😊❤️ <br><br>
 🎧 عاوز اسمع قد ما شبع من كلامك 💕 <br><br>
@@ -176,7 +176,7 @@ input {
     <div class="sorry">
       
        عارفه لو مقولتيش بعد التعب ده كلو انا هاعمل اي   <br><br>
-      ❤️😂 اكيد متعرفيش عشان انا لسه مقررتش  <br><br>
+       ❤️😂 اكيد متعرفيش عشان انا لسه مقررتش  <br><br>
        😂 انا هاقعد اغير هنا لاكن الصفحه اللي بعدها هاسيبها مش هاجي جنبها  <br><br>
     </div>
     <button onclick="goToLove()">اكمل</button>
@@ -185,7 +185,7 @@ input {
 <div id="love" class="page">
 
     <div class="love">
-        ❤️ بحبك يا أحلى ميرو ❤️
+         ❤️ بحبك يا أحلى ميرو ❤️
     </div>
 
     <p style="margin-top:15px; font-size:18px;">
@@ -220,10 +220,6 @@ function check(){
 
     if(input === pass){
         show("morning");
-
-        let music = document.getElementById("music");
-        music.play().catch(()=>{});
-
     } else {
         error.style.display="block";
     }
@@ -231,10 +227,19 @@ function check(){
 
 function goToSorry(){
     show("sorry");
+    
+    // تشغيل الأغنية فور الدخول لصفحة (عمرو حسن قال إيه)
+    let music = document.getElementById("music");
+    music.play().catch(()=>{});
 }
 
 function goToAnnoy(){
     show("annoy");
+    
+    // إيقاف الأغنية تماماً فور الخروج من الصفحة
+    let music = document.getElementById("music");
+    music.pause();
+    music.currentTime = 0; 
 }
 
 function goToLove(){
