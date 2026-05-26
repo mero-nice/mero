@@ -200,8 +200,7 @@ input {
 
     
 <audio id="music" src="100.mp3" loop></audio>
-
-<script>
+<audio id="music2" src="200.mp3"></audio> <script>
 
 const pass = "1442024"; // 🔐 التغيير الوحيد
 let heartsStarted = false;
@@ -228,7 +227,7 @@ function check(){
 function goToSorry(){
     show("sorry");
     
-    // تشغيل الأغنية فور الدخول لصفحة (عمرو حسن قال إيه)
+    // تشغيل الأغنية الأولى فور الدخول لصفحة (عمرو حسن قال إيه)
     let music = document.getElementById("music");
     music.play().catch(()=>{});
 }
@@ -236,7 +235,7 @@ function goToSorry(){
 function goToAnnoy(){
     show("annoy");
     
-    // إيقاف الأغنية تماماً فور الخروج من الصفحة
+    // إيقاف الأغنية الأولى تماماً فور الخروج من الصفحة
     let music = document.getElementById("music");
     music.pause();
     music.currentTime = 0; 
@@ -244,6 +243,10 @@ function goToAnnoy(){
 
 function goToLove(){
     show("love");
+
+    // تشغيل الأغنية الثانية (200.mp3) لمرة واحدة فقط فور دخول صفحة بحبك يا أحلى ميرو
+    let music2 = document.getElementById("music2");
+    music2.play().catch(()=>{});
 
     if(!heartsStarted){
         setInterval(createHeart, 180);
